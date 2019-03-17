@@ -2,15 +2,21 @@
   display: inline-block;
   max-width: 200px;
   min-height: 200px;
-  margin: 10px;
+  margin: 17px;
   text-align: center;
+}
+:host.alliance {
   background-image: url('~src/assets/factions/alliance.png');
+  background-size: cover;
+}
+:host.horde{
+  background-image: url('~src/assets/factions/horde.png');
   background-size: cover;
 }
 
 .name {
-  color: aliceblue;
-  font-size: 150%;
+  color: aquamarine;
+  font-size: 170%;
   padding-bottom: 10px;
   font-weight: bold;
 }
