@@ -1,0 +1,21 @@
+:host {
+  display: inline-block;
+  max-width: 200px;
+  min-height: 200px;
+  margin: 10px;
+  text-align: center;
+  background-image: url('~src/assets/factions/alliance.png');
+  background-size: cover;
+}
+
+.name {
+  color: aliceblue;
+  font-size: 150%;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+img {
+  max-width: 100%;
+  display: inline;
+  padding: 5px;
+}
