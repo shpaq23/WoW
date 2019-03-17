@@ -16,7 +16,7 @@ export class CharacterComponent implements OnInit {
     faction: 'alliance',
     factionUtl: '/assets/factions/alliance.png'
   };
-
+  //test commit
   constructor() { }
 
   ngOnInit() {
