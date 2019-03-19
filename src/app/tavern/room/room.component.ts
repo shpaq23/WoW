@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Character} from '../characters/character';
-import {HumanMage} from '../characters/human-mage';
-import {HumanRogue} from '../characters/human-rogue';
-import {UndeadWarlock} from '../characters/undead-warlock';
+import {Human} from '../characters/CharacterRaces/human';
+import {Rogue} from '../characters/CharacterClasses/rogue';
 
 @Component({
   selector: 'app-room',
@@ -17,10 +16,11 @@ export class RoomComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.characters.push(new HumanMage('Misiaq'));
-    this.characters.push(new HumanRogue('Deadly Zuzax'));
-    this.characters.push(new UndeadWarlock('Reek XD'));
+    this.characters.push(new Character({characterRace: new Human(), characterClass: new Rogue(), level: 1, nickName: 'Misiaq' }));
 
+    this.characters.push(new Character({characterRace: new Human(), characterClass: new Rogue(), level: 1, nickName: 'Zuzixa' }));
+
+    this.characters.push(new Character({characterRace: new Human(), characterClass: new Rogue(), level: 1, nickName: 'Dupska' }));
   }
 
 }

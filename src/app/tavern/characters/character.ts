@@ -1,27 +1,27 @@
-export abstract class Character {
+import {CharacterRace} from './character-race';
+import {CharacterClass} from './character-class';
+
+export class Character {
+
+  characterRace: CharacterRace;
+  characterClass: CharacterClass;
   nickName: string;
-  raceName: string;
-  raceUrl: string;
-  className: string;
-  classUrl: string;
-  faction: string;
-  factionUrl: string;
+  level: number;
+  // health: number;
+  // resources: number;
 
   constructor(attrs: {
-    nickName: string,
-    raceName: string,
-    raceUrl: string,
-    className: string,
-    classUrl: string,
-    faction: string,
-    factionUrl: string
+    characterRace: CharacterRace;
+    characterClass: CharacterClass;
+    nickName: string;
+    level: number;
+  //  health: number;
+  //  resources: number;
   }) {
-    this.nickName = attrs.nickName;
-    this.raceName = attrs.raceName;
-    this.raceUrl = attrs.raceUrl;
-    this.className = attrs.className;
-    this.classUrl = attrs.classUrl;
-    this.faction = attrs.faction;
-    this.factionUrl = attrs.factionUrl;
+    this.characterRace = attrs.characterRace;
+    this.characterClass = attrs.characterClass;
+    this.level = attrs.level;
+  //  this.health = attrs.health;
+  //  this.resources = attrs.resources;
   }
 }

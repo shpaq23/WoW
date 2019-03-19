@@ -8,14 +8,14 @@ import { CharacterComponent } from './character/character.component';
 @NgModule({
   declarations: [
     RoomComponent,
-    CharacterComponent
+    CharacterComponent,
   ],
   imports: [
     CommonModule,
-    TavernRoutingModule
+    TavernRoutingModule,
   ],
   exports: [
-    RoomComponent
+    RoomComponent,
   ]
 
 })
