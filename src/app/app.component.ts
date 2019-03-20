@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {LoginForm} from './panel/login-form';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'wow';
+  loginCredentials: LoginForm;
+
+  setLoginCredentials(formValue: LoginForm) {
+    this.loginCredentials = formValue;
+    console.log(this.loginCredentials);
+  }
+
 }

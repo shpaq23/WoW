@@ -3,4 +3,9 @@
   width: 100%;
   margin: 10px auto;
   text-align: center;
+  font-family: wowFont, serif;
+}
+@font-face {
+  font-family: wowFont;
+  src: url('~src/assets/fonts/wowFont.otf') format("opentype");
 }

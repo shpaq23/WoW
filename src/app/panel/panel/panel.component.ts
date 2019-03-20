@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {LoginForm} from '../login-form';
 
 @Component({
   selector: 'app-panel',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
 
+  @Output() loginCredentials = new EventEmitter();
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  sendFurther(formValue: LoginForm) {
+    this.loginCredentials.emit(formValue);
   }
 
 }

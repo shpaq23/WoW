@@ -1,23 +1,22 @@
-<form #form="ngForm" (ngSubmit)="login(form.value)">
+<form #form="ngForm" autocomplete="off" (ngSubmit)="login(form.value)">
   <div class="control-group">
-    <label class="control-label">E-mail:</label>
-    <label><input #emailInput="ngModel" ngModel email="true" type="email" name="email" required/></label>
+    <label class="text-label">E-mail</label>
+    <label class="input-label"><input #emailInput="ngModel" ngModel email="true" type="email" name="email" required/></label>
     <span *ngIf="emailInput.hasError('required') && emailInput.touched" class="error">
-      podaj wartość
+      E-mail required
     </span>
     <span *ngIf="emailInput.hasError('email') && emailInput.touched" class="error">
-      błędny email
+      Invalid E-mail
     </span>
   </div>
   <div class="control-group">
-    <label class="control-label">Password</label>
-    <label><input #passwordInput="ngModel" ngModel type="password" name="password" required/></label>
+    <label class="text-label">Password</label>
+    <label class="input-label"><input #passwordInput="ngModel" ngModel type="password" name="password" required/></label>
     <span *ngIf="passwordInput.hasError('required') && passwordInput.touched" class="error">
-      podaj wartość
+      Password required
     </span>
   </div>
-  <div class="control-group">
-    <button type="submit" [disabled]="form.invalid">Zaloguj</button>
+  <div class="control-group submit">
+    <button type="submit" [disabled]="form.invalid">Login</button>
   </div>
-
 </form>
