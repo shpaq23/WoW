@@ -10,18 +10,10 @@ export class Character {
   // health: number;
   // resources: number;
 
-  constructor(attrs: {
-    characterRace: CharacterRace;
-    characterClass: CharacterClass;
-    nickName: string;
-    level: number;
-  //  health: number;
-  //  resources: number;
-  }) {
-    this.characterRace = attrs.characterRace;
-    this.characterClass = attrs.characterClass;
+  constructor(attrs: { nickName: string, race: string, class: string, level: number }) {
+    this.nickName = attrs.nickName;
+    this.characterRace = new CharacterRace({name: attrs.race});
+    this.characterClass = new CharacterClass({name: attrs.class});
     this.level = attrs.level;
-  //  this.health = attrs.health;
-  //  this.resources = attrs.resources;
   }
 }

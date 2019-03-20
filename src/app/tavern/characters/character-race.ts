@@ -1,17 +1,18 @@
 import {CharacterStats} from './character-stats';
+import {Maper} from './maper';
 
-export abstract class CharacterRace {
+export class CharacterRace {
   name: string;
   raceUrl: string;
   faction: string;
   factionUrl: string;
   baseStats: CharacterStats;
 
-  constructor(attrs: {name: string, raceUrl: string, faction: string, factionUrl: string, baseStats: CharacterStats}) {
+  constructor(attrs: {name: string}) {
     this.name = attrs.name;
-    this.raceUrl = attrs.raceUrl;
-    this.faction = attrs.faction;
-    this.factionUrl = attrs.factionUrl;
-    this.baseStats = attrs.baseStats;
+    this.raceUrl = `/assets/races/${attrs.name}.png`;
+    this.faction = Maper.faction[attrs.name];
+    this.factionUrl = `/assets/factions/${this.faction}`;
+    this.baseStats = Maper.baseStats[attrs.name];
   }
 }

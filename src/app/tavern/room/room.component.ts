@@ -16,11 +16,10 @@ export class RoomComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.characters.push(new Character({characterRace: new Human(), characterClass: new Rogue(), level: 1, nickName: 'Misiaq' }));
+    this.characters.push(new Character({nickName: 'Misiaq', class: 'rogue', race: 'human', level: 1}));
+    this.characters.push(new Character({nickName: 'Zuzaxi', class: 'mage', race: 'human', level: 1}));
+    this.characters.push(new Character({nickName: 'ReekXD', class: 'warlock', race: 'undead', level: 1}));
 
-    this.characters.push(new Character({characterRace: new Human(), characterClass: new Rogue(), level: 1, nickName: 'Zuzixa' }));
-
-    this.characters.push(new Character({characterRace: new Human(), characterClass: new Rogue(), level: 1, nickName: 'Dupska' }));
   }
 
 }
