@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Character} from '../characters/character';
 
 @Component({
@@ -8,7 +8,6 @@ import {Character} from '../characters/character';
 })
 export class RoomComponent implements OnInit {
 
-  @Input() faction: string;
   characters: Character[] = [];
 
   constructor() { }
@@ -17,6 +16,7 @@ export class RoomComponent implements OnInit {
     this.characters.push(new Character({nickName: 'Misiaq', class: 'rogue', race: 'human', level: 1}));
     this.characters.push(new Character({nickName: 'Zuzaxi', class: 'mage', race: 'human', level: 1}));
     this.characters.push(new Character({nickName: 'ReekXD', class: 'warlock', race: 'undead', level: 1}));
+    this.characters.push(new Character({nickName: 'Zamzam', class: 'warrior', race: 'undead', level: 1}));
 
   }
 

@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {TavernModule} from './tavern/tavern.module';
+import { AppRoutingModule } from './app-routing.module';
+import {PanelModule} from './panel/panel.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    TavernModule
+    TavernModule,
+    PanelModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

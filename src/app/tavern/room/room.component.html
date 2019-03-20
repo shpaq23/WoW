@@ -1,9 +1,14 @@
-<h1 *ngIf="faction==='alliance'" [class]="faction">Alliance Room</h1>
-<h1 *ngIf="faction==='horde'" [class]="faction">Horde Room</h1>
-<ng-container *ngFor="let character of characters">
-  <app-character *ngIf="character.characterRace.faction===faction" [class]="character.characterRace.faction" [character]="character"></app-character>
-</ng-container>
+<div [class]="'alliance'">
+  <h1>Alliance Room</h1>
+  <ng-container *ngFor="let character of characters">
+    <app-character *ngIf="character.characterRace.faction==='alliance'" [class]="character.characterRace.faction" [character]="character"></app-character>
+  </ng-container>
+</div>
 
-<!--<h1 class=horde>Horde Room</h1>-->
-<!--<app-character *ngFor="let character of characters" [class]="character.faction" [character]="character"></app-character>-->
+<div [class]="'horde'">
+  <h1 >Horde Room</h1>
+  <ng-container *ngFor="let character of characters">
+    <app-character *ngIf="character.characterRace.faction==='horde'" [class]="character.characterRace.faction" [character]="character"></app-character>
+  </ng-container>
+</div>
 

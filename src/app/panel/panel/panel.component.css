@@ -1,0 +1,15 @@
+:host {
+  display: inline-block;
+  width: 48%;
+  height: 100%;
+  min-height: 92vh;
+  margin: 1%;
+  text-align: center;
+  float: right;
+
+  background-image: url('~src/assets/login2.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
