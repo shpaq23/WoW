@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Character} from '../characters/character';
-import {Human} from '../characters/CharacterRaces/human';
-import {Rogue} from '../characters/CharacterClasses/rogue';
 
 @Component({
   selector: 'app-room',
