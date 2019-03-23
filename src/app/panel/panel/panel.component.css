@@ -1,10 +1,9 @@
 :host {
   display: inline-block;
-  width: 48%;
+  width: 80%;
   height: 100%;
-  min-height: 92vh;
+  min-height: 94vh;
   margin: 1%;
-  float: right;
 
   background-image: url('~src/assets/login2.png');
   background-size: cover;

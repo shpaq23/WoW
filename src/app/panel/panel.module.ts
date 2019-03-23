@@ -5,12 +5,13 @@ import { PanelRoutingModule } from './panel-routing.module';
 import { PanelComponent } from './panel/panel.component';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { RegistrationPanelComponent } from './registration-panel/registration-panel.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [PanelComponent, LoginPanelComponent, RegistrationPanelComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     PanelRoutingModule,
     FormsModule
   ],

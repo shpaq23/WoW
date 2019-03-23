@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {LoginForm} from '../login-form';
+import {LoginForm} from '../../interfaces/login-form';
 
 @Component({
   selector: 'app-panel',
@@ -16,5 +16,6 @@ export class PanelComponent implements OnInit {
   sendFurther(formValue: LoginForm) {
     this.loginCredentials.emit(formValue);
   }
+
 
 }

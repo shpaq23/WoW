@@ -1,22 +1,55 @@
-<form #form="ngForm" autocomplete="off" (ngSubmit)="login(form.value)">
-  <div class="control-group">
-    <label class="text-label">E-mail</label>
-    <label class="input-label"><input #emailInput="ngModel" ngModel email="true" type="email" name="email" required/></label>
-    <span *ngIf="emailInput.hasError('required') && emailInput.touched" class="error">
-      E-mail required
-    </span>
-    <span *ngIf="emailInput.hasError('email') && emailInput.touched" class="error">
-      Invalid E-mail
-    </span>
+<form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label class="text-label" for="email">E-mail</label>
+    <input type="email" formControlName="email" class="form-control" id="email" [ngClass]="{ 'is-invalid': submitted &&  f.email.errors }"/>
+    <div *ngIf="submitted && f.email.errors" class="error">
+      <div *ngIf="f.email.errors.required">E-mail is required</div>
+    </div>
+    <div *ngIf="submitted && f.email.errors" class="error">
+      <div *ngIf="f.email.errors.email">Invalid E-mail</div>
+    </div>
   </div>
-  <div class="control-group">
-    <label class="text-label">Password</label>
-    <label class="input-label"><input #passwordInput="ngModel" ngModel type="password" name="password" required/></label>
-    <span *ngIf="passwordInput.hasError('required') && passwordInput.touched" class="error">
-      Password required
-    </span>
+  <div class="form-group">
+    <label class="text-label" for="password">Password</label>
+    <input type="password" formControlName="password" class="form-control" id="password" [ngClass]="{ 'is-invalid': submitted &&  f.password.errors }"/>
+    <div *ngIf="submitted && f.password.errors" class="error">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
   </div>
-  <div class="control-group submit">
-    <button type="submit" [disabled]="form.invalid">Login</button>
+  <div class="form-group submit">
+    <button type="submit" [disabled]="loading" class="btn btn-primary">Login</button>
+    <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  alt="refresh"/>
   </div>
+  <div *ngIf="error" class="error">{{error}}</div>
+
 </form>
+
+
+
+
+
+
+
+
+<!--<form #form="ngForm" autocomplete="off" (ngSubmit)="login(form.value)">-->
+  <!--<div class="control-group">-->
+    <!--<label class="text-label">E-mail</label>-->
+    <!--<label class="input-label"><input #emailInput="ngModel" ngModel email="true" type="email" name="email" required/></label>-->
+    <!--<span *ngIf="emailInput.hasError('required') && emailInput.touched" class="error">-->
+      <!--E-mail required-->
+    <!--</span>-->
+    <!--<span *ngIf="emailInput.hasError('email') && emailInput.touched" class="error">-->
+      <!--Invalid E-mail-->
+    <!--</span>-->
+  <!--</div>-->
+  <!--<div class="control-group">-->
+    <!--<label class="text-label">Password</label>-->
+    <!--<label class="input-label"><input #passwordInput="ngModel" ngModel type="password" name="password" required/></label>-->
+    <!--<span *ngIf="passwordInput.hasError('required') && passwordInput.touched" class="error">-->
+      <!--Password required-->
+    <!--</span>-->
+  <!--</div>-->
+  <!--<div class="control-group submit">-->
+    <!--<button type="submit" [disabled]="form.invalid">Login</button>-->
+  <!--</div>-->
+<!--</form>-->

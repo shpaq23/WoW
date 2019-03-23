@@ -1,6 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {LoginForm} from '../login-form';
-
+import {LoginForm} from '../../interfaces/login-form';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../../api/services/authentication.service';
+import {first} from 'rxjs/operators';
 
 
 @Component({
@@ -11,9 +14,52 @@ import {LoginForm} from '../login-form';
 export class LoginPanelComponent implements OnInit {
 
   @Output() loginCredentials = new EventEmitter();
-  constructor() { }
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
 
-  ngOnInit() { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private authenticationService: AuthenticationService) { }
+
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', {validators: [Validators.required, Validators.email]}),
+      password: new FormControl('', {validators: [Validators.required]})
+      });
+    this.authenticationService.logout();
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    }
+
+
+  get f() { return this.loginForm.controls; }
+
+  get form(): LoginForm {
+    return {email: this.f.email.value, password: this.f.password.value};
+  }
+
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.authenticationService.login(this.form)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.error = error;
+          this.loading = false;
+        });
+
+  }
   login(formValue: LoginForm) {
     this.loginCredentials.emit(formValue);
   }
