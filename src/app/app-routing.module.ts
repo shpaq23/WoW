@@ -7,7 +7,7 @@ import {PanelComponent} from './panel/panel/panel.component';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'characters',
     component: RoomComponent,
     canActivate: [AuthGuard]
   },

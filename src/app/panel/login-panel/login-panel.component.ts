@@ -30,7 +30,7 @@ export class LoginPanelComponent implements OnInit {
       password: new FormControl('', {validators: [Validators.required]})
       });
     this.authenticationService.logout();
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/characters';
     }
 
 

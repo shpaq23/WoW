@@ -6,6 +6,6 @@ export interface User {
   email: string;
   jwt_token?: string;
   jwt_token_expired_date?: string;
-  jwt_token_type?: 'bearer';
+  jwt_token_type?: string;
 
 }

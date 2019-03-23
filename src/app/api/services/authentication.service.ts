@@ -26,6 +26,7 @@ export class AuthenticationService {
   login(loginCredentials: LoginForm) {
     return this.http.post<User>(this.url + '/login', {email: loginCredentials.email, password: loginCredentials.password})
       .pipe(map(user => {
+        console.log(user);
         if (user && user.jwt_token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
