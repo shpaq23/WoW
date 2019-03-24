@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {RegistrationService} from '../../api/services/registration.service';
+import {RegistrationForm} from '../../api/interfaces/registration-form';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration-panel',
@@ -7,9 +12,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationPanelComponent implements OnInit {
 
-  constructor() { }
+  registerForm: FormGroup;
+  submitted = false;
+  loading = false;
+  error = '';
+
+  constructor(private router: Router, private registerService: RegistrationService) { }
+
+
 
   ngOnInit() {
+    this.registerForm = new FormGroup({
+      first_name: new FormControl('', {validators: [Validators.required]}),
+      last_name: new FormControl('', {validators: [Validators.required]}),
+      email: new FormControl('', {validators: [Validators.required, Validators.email]}),
+      passwords: new FormGroup({
+        password: new FormControl('', {validators: [Validators.required]}),
+        re_password: new FormControl('', {validators: [Validators.required]}),
+      }, {validators: [this.checkPasswords]}),
+      creation_password: new FormControl('', {validators: [Validators.required]})
+    });
   }
 
+  checkPasswords(group: FormGroup) {
+    return group.controls.password === group.controls.re_password ? null : {notSame: true};
+  }
+  get f() { return this.registerForm.controls; }
+
+  get form(): RegistrationForm {
+    return {
+      first_name: this.f.first_name.value,
+      last_name: this.f.last_name.value,
+      email: this.f.email.value,
+      password: this.f.password.value,
+      creation_password: this.f.creation_password.value
+    };
+  }
+
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.registerService.register(this.form)
+      .pipe(first())
+      .subscribe({
+        complete: () => { this.router.navigate(['/login']); },
+        error: err => {
+          this.error = err;
+          this.loading = false;
+        }
+      });
+  }
 }

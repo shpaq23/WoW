@@ -12,8 +12,13 @@ div.form-group {
   padding: 10px;
 }
 
+div.errors {
+  border: 4px solid rgb(193, 54, 7);
+  border-radius: 12px;
+  background-color: rgba(77, 77, 77, 0.60);
+}
 div.form-group.submit {
-  padding-top: 30px;
+  padding-top: 24px;
 }
 label.text-label {
   font-size: 160%;
@@ -44,7 +49,7 @@ input {
 
   color: #fffcf5;
 }
-button[type=submit] {
+button {
   width: 260px;
   height: 30px;
 

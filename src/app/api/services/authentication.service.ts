@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../interfaces/user';
 import {HttpClient} from '@angular/common/http';
 import {LoginForm} from '../interfaces/login-form';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,6 @@ export class AuthenticationService {
   login(loginCredentials: LoginForm) {
     return this.http.post<User>(this.url + '/login', {email: loginCredentials.email, password: loginCredentials.password})
       .pipe(map(user => {
-        console.log(user);
         if (user && user.jwt_token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
@@ -36,7 +35,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    // TODO: 'sending request to server and deleting user token'
+    // TODO: 'sending request to server and deleting user token infinity loop if currentUser with wrong token or expired'
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
 

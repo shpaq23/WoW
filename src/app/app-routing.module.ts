@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {RoomComponent} from './tavern/room/room.component';
 import {AuthGuard} from './api/guards/auth.guard';
-import {PanelComponent} from './panel/panel/panel.component';
+import {LoginPanelComponent} from './panel/login-panel/login-panel.component';
+import {RegistrationPanelComponent} from './panel/registration-panel/registration-panel.component';
 
 const appRoutes: Routes = [
   {
@@ -13,9 +14,14 @@ const appRoutes: Routes = [
   },
   {
     path: 'login',
-    component: PanelComponent
+    component: LoginPanelComponent
   },
-  {path: '**', redirectTo: ''}
+  {
+    path: 'registration',
+    component: RegistrationPanelComponent
+  },
+
+  {path: '**', redirectTo: 'characters'}
 ];
 export const routing = RouterModule.forRoot(appRoutes);
 @NgModule({
