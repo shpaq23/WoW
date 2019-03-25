@@ -4,13 +4,10 @@
   position: absolute;
   top: 50%;
 }
-div.left {
+div.inputs {
+  display: inline;
   float: left;
-  display: inline-block;
-}
-div.right {
-  float: right;
-  display: inline-block;
+  padding-bottom: 20px;
 }
 label {
   display: block;
@@ -19,9 +16,6 @@ div.form-group {
   padding: 10px;
 }
 
-div.form-group.submit {
-  padding-top: 30px;
-}
 label.text-label {
   font-size: 160%;
   font-weight: bold;
@@ -71,7 +65,9 @@ button[type=submit]:disabled {
   background-color: rgb(46, 12, 9);
 }
 div.buttons {
-  display: inline-block;
+  display: block;
+  width: 560px;
+  left: 50%;
 }
 div.error {
   color: #a00000;

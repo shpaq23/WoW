@@ -38,7 +38,7 @@ export class LoginPanelComponent implements OnInit {
 
 
   get form(): LoginForm {
-    return {email: this.loginForm.controls.email.value, password: this.loginForm.controls.password.value};
+    return {email: this.loginForm.get('email').value, password: this.loginForm.get('password').value};
   }
 
 
@@ -54,6 +54,7 @@ export class LoginPanelComponent implements OnInit {
       .subscribe({
           complete: () => { this.router.navigate([this.returnUrl]); },
           error: err => {
+            console.log(err);
             this.error = err;
             this.loading = false; }
           });

@@ -20,7 +20,7 @@ export class RegistrationPanelComponent implements OnInit {
   constructor(private router: Router, private registerService: RegistrationService) { }
 
 
-
+  // TODO: `min password length 8`
   ngOnInit() {
     this.registerForm = new FormGroup({
       first_name: new FormControl('', {validators: [Validators.required]}),
@@ -41,11 +41,11 @@ export class RegistrationPanelComponent implements OnInit {
 
   get form(): RegistrationForm {
     return {
-      first_name: this.registerForm.controls.first_name.value,
-      last_name: this.registerForm.controls.last_name.value,
-      email: this.registerForm.controls.email.value,
-      password: this.registerForm.controls.password.value,
-      creation_password: this.registerForm.controls.creation_password.value
+      first_name: this.registerForm.get('first_name').value,
+      last_name: this.registerForm.get('last_name').value,
+      email: this.registerForm.get('email').value,
+      password: this.registerForm.get('passwords').get('password').value,
+      creation_password: this.registerForm.get('creation_password').value
     };
   }
 
