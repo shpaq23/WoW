@@ -37,10 +37,8 @@ export class LoginPanelComponent implements OnInit {
     }
 
 
-  get f() { return this.loginForm.controls; }
-
   get form(): LoginForm {
-    return {email: this.f.email.value, password: this.f.password.value};
+    return {email: this.loginForm.controls.email.value, password: this.loginForm.controls.password.value};
   }
 
 

@@ -31,21 +31,21 @@ export class RegistrationPanelComponent implements OnInit {
         re_password: new FormControl('', {validators: [Validators.required]}),
       }, {validators: [this.checkPasswords]}),
       creation_password: new FormControl('', {validators: [Validators.required]})
-    });
+    }, {updateOn: 'submit'});
   }
 
   checkPasswords(group: FormGroup) {
-    return group.controls.password === group.controls.re_password ? null : {notSame: true};
+
+    return group.controls.password.value === group.controls.re_password.value ? null : {notSame: true};
   }
-  get f() { return this.registerForm.controls; }
 
   get form(): RegistrationForm {
     return {
-      first_name: this.f.first_name.value,
-      last_name: this.f.last_name.value,
-      email: this.f.email.value,
-      password: this.f.password.value,
-      creation_password: this.f.creation_password.value
+      first_name: this.registerForm.controls.first_name.value,
+      last_name: this.registerForm.controls.last_name.value,
+      email: this.registerForm.controls.email.value,
+      password: this.registerForm.controls.password.value,
+      creation_password: this.registerForm.controls.creation_password.value
     };
   }
 

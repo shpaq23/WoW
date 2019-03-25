@@ -4,7 +4,14 @@
   position: absolute;
   top: 50%;
 }
-
+div.left {
+  float: left;
+  display: inline-block;
+}
+div.right {
+  float: right;
+  display: inline-block;
+}
 label {
   display: block;
 }
@@ -44,7 +51,7 @@ input {
 
   color: #fffcf5;
 }
-button[type=submit] {
+button {
   width: 260px;
   height: 30px;
 
@@ -63,5 +70,17 @@ button[type=submit] {
 button[type=submit]:disabled {
   background-color: rgb(46, 12, 9);
 }
-
-
+div.buttons {
+  display: inline-block;
+}
+div.error {
+  color: #a00000;
+  font-size: 120%;
+  font-weight: bold;
+  text-shadow: 1px -1px black;
+}
+div.errors {
+  border: 4px solid rgb(193, 54, 7);
+  border-radius: 12px;
+  background-color: rgba(77, 77, 77, 0.60);
+}
