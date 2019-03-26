@@ -16,18 +16,18 @@ export class RegistrationPanelComponent implements OnInit {
   submitted = false;
   loading = false;
   error = '';
+  success = false;
 
   constructor(private router: Router, private registerService: RegistrationService) { }
 
 
-  // TODO: `min password length 8`
   ngOnInit() {
     this.registerForm = new FormGroup({
       first_name: new FormControl('', {validators: [Validators.required]}),
       last_name: new FormControl('', {validators: [Validators.required]}),
       email: new FormControl('', {validators: [Validators.required, Validators.email]}),
       passwords: new FormGroup({
-        password: new FormControl('', {validators: [Validators.required]}),
+        password: new FormControl('', {validators: [Validators.required, Validators.minLength(8)]}),
         re_password: new FormControl('', {validators: [Validators.required]}),
       }, {validators: [this.checkPasswords]}),
       creation_password: new FormControl('', {validators: [Validators.required]})
@@ -59,7 +59,7 @@ export class RegistrationPanelComponent implements OnInit {
     this.registerService.register(this.form)
       .pipe(first())
       .subscribe({
-        complete: () => { this.router.navigate(['/login']); },
+        complete: () => { this.error = ''; this.success = true; this.loading = false; },
         error: err => {
           this.error = err;
           this.loading = false;

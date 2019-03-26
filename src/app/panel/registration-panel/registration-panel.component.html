@@ -1,4 +1,8 @@
 <form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div *ngIf="(success)" class="successes">
+    <div class="success">Successfully Registered </div>
+    <div class="success">Log In ! </div>
+  </div>
   <div *ngIf="(submitted && registerForm.invalid) || error" class="errors">
       <div class="error" *ngIf="registerForm.get('first_name').hasError('required')">First Name is required</div>
       <div class="error" *ngIf="registerForm.get('last_name').hasError('required')">Last Name is required</div>
@@ -7,9 +11,11 @@
 
       <div class="error" *ngIf="registerForm.get('passwords').hasError('notSame')">Passwords do not match </div>
       <div class="error" *ngIf="registerForm.get('passwords').get('password').hasError('required')">Password is required </div>
+      <div class="error" *ngIf="registerForm.get('passwords').get('password').hasError('minlength')">Password is too short </div>
       <div class="error" *ngIf="registerForm.get('creation_password').hasError('required')">Creation Password is required </div>
 
-    <div class="error" *ngIf="error">{{error}}</div>
+    <div class="error" *ngIf="error.email">{{error.email}}</div>
+    <div class="error" *ngIf="error.creation_password">{{error.creation_password}}</div>
 
   </div>
 

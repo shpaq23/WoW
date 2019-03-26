@@ -80,3 +80,14 @@ div.errors {
   border-radius: 12px;
   background-color: rgba(77, 77, 77, 0.60);
 }
+div.successes {
+  border: 4px solid rgb(32, 203, 1);
+  border-radius: 12px;
+  background-color: rgba(77, 77, 77, 0.60);
+}
+div.success {
+  color: rgb(32, 175, 1);
+  font-size: 120%;
+  font-weight: bold;
+  text-shadow: 1px -1px black;
+}
