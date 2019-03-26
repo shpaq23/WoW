@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {RegistrationService} from '../../api/services/registration.service';
 import {RegistrationForm} from '../../api/interfaces/registration-form';
 import {first} from 'rxjs/operators';
+import {AuthenticationService} from '../../api/services/authentication.service';
 
 @Component({
   selector: 'app-registration-panel',
@@ -18,7 +19,9 @@ export class RegistrationPanelComponent implements OnInit {
   error = '';
   success = false;
 
-  constructor(private router: Router, private registerService: RegistrationService) { }
+  constructor(private router: Router,
+              private registerService: RegistrationService,
+              private authenticationService: AuthenticationService) { }
 
 
   ngOnInit() {
@@ -32,6 +35,9 @@ export class RegistrationPanelComponent implements OnInit {
       }, {validators: [this.checkPasswords]}),
       creation_password: new FormControl('', {validators: [Validators.required]})
     }, {updateOn: 'submit'});
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['']);
+    }
   }
 
   checkPasswords(group: FormGroup) {

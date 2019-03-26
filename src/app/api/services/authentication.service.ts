@@ -35,10 +35,8 @@ export class AuthenticationService {
   }
 
   logout() {
-    // TODO: 'sending request to server and deleting user token infinity loop if currentUser with wrong token or expired'
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-
   }
 
 }

@@ -5,6 +5,7 @@ import {RoomComponent} from './tavern/room/room.component';
 import {AuthGuard} from './api/guards/auth.guard';
 import {LoginPanelComponent} from './panel/login-panel/login-panel.component';
 import {RegistrationPanelComponent} from './panel/registration-panel/registration-panel.component';
+import {LogoutComponent} from './panel/logout/logout.component';
 
 const appRoutes: Routes = [
   {
@@ -19,6 +20,10 @@ const appRoutes: Routes = [
   {
     path: 'registration',
     component: RegistrationPanelComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   },
 
   {path: '**', redirectTo: 'characters'}

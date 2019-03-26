@@ -32,7 +32,6 @@ export class LoginPanelComponent implements OnInit {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['']);
     }
-    // this.authenticationService.logout();
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/characters';
     }
 
@@ -54,7 +53,6 @@ export class LoginPanelComponent implements OnInit {
       .subscribe({
           complete: () => { this.router.navigate([this.returnUrl]); },
           error: err => {
-            console.log(err);
             this.error = err;
             this.loading = false; }
           });

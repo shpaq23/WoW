@@ -19,7 +19,6 @@ export class ErrorInterceptor implements HttpInterceptor {
           location.reload(true);
         }
       }
-      // TODO: `error catching for register`a
       const error = err.error.errors || err.error.error || err.statusText;
       return throwError(error);
     }));
