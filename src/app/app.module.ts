@@ -8,6 +8,7 @@ import {PanelModule} from './panel/panel.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './api/interceptors/jwt-interceptor';
 import {ErrorInterceptor} from './api/interceptors/error-interceptor';
+import {CharacterModule} from './character/character.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import {ErrorInterceptor} from './api/interceptors/error-interceptor';
     BrowserModule,
     TavernModule,
     PanelModule,
+    CharacterModule,
     AppRoutingModule,
     HttpClientModule,
     routing

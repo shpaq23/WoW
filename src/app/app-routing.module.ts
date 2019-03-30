@@ -6,11 +6,17 @@ import {AuthGuard} from './api/guards/auth.guard';
 import {LoginPanelComponent} from './panel/login-panel/login-panel.component';
 import {RegistrationPanelComponent} from './panel/registration-panel/registration-panel.component';
 import {LogoutComponent} from './panel/logout/logout.component';
+import {CharacterCreationComponent} from './character/character-creation/character-creation.component';
 
 const appRoutes: Routes = [
   {
     path: 'characters',
     component: RoomComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'character',
+    component: CharacterCreationComponent,
     canActivate: [AuthGuard]
   },
   {
