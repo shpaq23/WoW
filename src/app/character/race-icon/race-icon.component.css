@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  padding-bottom: 10px;
+}
+img.selected {
+  border-radius: 10px;
+  border: 3px solid #f6a530;
+}
+img {
+  border-radius: 10px;
+  border: 3px solid rgba(0,0,0,0);
+}
+.name {
+  font-weight: bold;
+  color: rgb(145, 98, 0);
+  text-shadow: 1px -1px black;
+}
+.name.selected {
+  color: rgb(246, 165, 48);
+}

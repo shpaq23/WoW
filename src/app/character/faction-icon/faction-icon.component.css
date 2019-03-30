@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding-bottom: 60px;
+}
+.name {
+  font-weight: bold;
+  font-size: 120%;
+  text-shadow: 1px -1px black;
+  padding-bottom: 5px;
+}
+.alliance {
+  color: rgb(22, 93, 145);
+}
+.horde {
+  color: rgb(168, 29, 22)
+}

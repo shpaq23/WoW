@@ -1,0 +1,2 @@
+<img [class.selected]="selected" [src]="url+gender+'.png'" alt="{{gender}}" (click)="selectGender(gender)"/>
+<div [class.selected]="selected" class="name">{{gender.charAt(0).toUpperCase() + gender.slice(1)}}</div>

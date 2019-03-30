@@ -1,0 +1,18 @@
+<div class="races">
+  <div class="alliance faction">
+    <app-faction-icon [faction]="'alliance'"></app-faction-icon>
+    <ng-container *ngFor="let race of availableRaces">
+      <app-race-icon (selectedRace)="selectRace($event)" *ngIf="race.gender===choosenGender && race.faction==='alliance'" [race]="race" [selected]="choosenRace===race" ></app-race-icon>
+    </ng-container>
+  </div>
+  <div class="horde faction">
+    <app-faction-icon [faction]="'horde'"></app-faction-icon>
+    <ng-container *ngFor="let race of availableRaces">
+      <app-race-icon (selectedRace)="selectRace($event)" *ngIf="race.gender===choosenGender && race.faction==='horde'" [race]="race" [selected]="choosenRace===race"></app-race-icon>
+    </ng-container>
+  </div>
+  <div class="genders">
+      <app-gender-icon (selectedGender)="selectGender($event)" [selected]="choosenGender==='female'" [gender]="'female'"></app-gender-icon>
+      <app-gender-icon (selectedGender)="selectGender($event)" [selected]="choosenGender==='male'" [gender]="'male'"></app-gender-icon>
+  </div>
+</div>

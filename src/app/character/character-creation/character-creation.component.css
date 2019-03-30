@@ -1,0 +1,27 @@
+:host {
+  width: 80%;
+  display: inline-block;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+}
+div.races {
+  width: 200px;
+  float: left;
+}
+div.alliance {
+  background-color: darkblue;
+}
+div.horde {
+  background-color: #6b0e0e;
+}
+div.faction {
+  width: 42%;
+  float: left;
+  margin: 4%;
+}
+div.genders {
+  display: inline;
+  width: 100%;
+  float: left;
+}

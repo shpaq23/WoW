@@ -1,0 +1,5 @@
+<img [src]="url+race.name+race.gender+'.png'" alt="{{race.name}}" [class.selected]="selected" (click)="selectRace(race)"/>
+<div class="name" [class.selected]="selected">{{race.name === 'nightelf'? 'Night Elf' : race.name.charAt(0).toUpperCase() + race.name.slice(1)}}</div>
+
+
+
