@@ -1,12 +1,13 @@
 :host {
   width: 80%;
   display: inline-block;
-  transform: translate(-50%,-50%);
-  position: absolute;
-  top: 50%;
+  position: relative;
+  margin: 3%;
+  background-color: rgba(77, 77, 77, 0.60);
 }
 div.races {
   width: 200px;
+  height: 731px;
   float: left;
 }
 div.alliance {
@@ -24,4 +25,18 @@ div.genders {
   display: inline;
   width: 100%;
   float: left;
+}
+div.info {
+  float: right;
+  margin: 8px;
+  height: 731px;
+}
+div.classes {
+  display: block;
+  background-color: #574d4b;
+  position: absolute;
+  bottom: 0;
+}
+div.model {
+  display: block;
 }

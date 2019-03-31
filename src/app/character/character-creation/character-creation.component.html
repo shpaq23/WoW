@@ -2,17 +2,28 @@
   <div class="alliance faction">
     <app-faction-icon [faction]="'alliance'"></app-faction-icon>
     <ng-container *ngFor="let race of availableRaces">
-      <app-race-icon (selectedRace)="selectRace($event)" *ngIf="race.gender===choosenGender && race.faction==='alliance'" [race]="race" [selected]="choosenRace===race" ></app-race-icon>
+      <app-race-icon (selectedRace)="selectRace($event)" *ngIf="race.gender===choosenGender && race.faction==='alliance'" [race]="race" [selected]="choosenRace.name === race.name" ></app-race-icon>
     </ng-container>
   </div>
   <div class="horde faction">
     <app-faction-icon [faction]="'horde'"></app-faction-icon>
     <ng-container *ngFor="let race of availableRaces">
-      <app-race-icon (selectedRace)="selectRace($event)" *ngIf="race.gender===choosenGender && race.faction==='horde'" [race]="race" [selected]="choosenRace===race"></app-race-icon>
+      <app-race-icon (selectedRace)="selectRace($event)" *ngIf="race.gender===choosenGender && race.faction==='horde'" [race]="race" [selected]="choosenRace.name === race.name"></app-race-icon>
     </ng-container>
   </div>
   <div class="genders">
-      <app-gender-icon (selectedGender)="selectGender($event)" [selected]="choosenGender==='female'" [gender]="'female'"></app-gender-icon>
-      <app-gender-icon (selectedGender)="selectGender($event)" [selected]="choosenGender==='male'" [gender]="'male'"></app-gender-icon>
+      <app-gender-icon (selectedGender)="selectGender($event)" [selected]="choosenGender === 'female'" [gender]="'female'"></app-gender-icon>
+      <app-gender-icon (selectedGender)="selectGender($event)" [selected]="choosenGender === 'male'" [gender]="'male'"></app-gender-icon>
   </div>
 </div>
+<div class="info">
+  <div class="model">
+    <app-character-model [characterClass]="choosenClass" [race]="choosenRace"></app-character-model>
+  </div>
+  <div class="classes">
+    <ng-container *ngFor="let characterClass of choosenRace.availableClasses" >
+      <app-class-icon (selectedClass)="selectClass($event)" [characterClass]="characterClass" [selected]="choosenClass === characterClass"></app-class-icon>
+    </ng-container>
+  </div>
+</div>
+

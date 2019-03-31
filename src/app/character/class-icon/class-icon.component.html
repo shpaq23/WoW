@@ -1,0 +1,5 @@
+<img [src]="url+characterClass+'.png'" alt="{{characterClass}}" [class.selected]="selected" (click)="selectClass(characterClass)"/>
+<div class="name" [class.selected]="selected">{{characterClass.charAt(0).toUpperCase() + characterClass.slice(1)}}</div>
+
+
+

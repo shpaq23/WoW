@@ -15,7 +15,7 @@ export abstract class Maper {
   static readonly baseStats = {
     human: new CharacterStats({agi: 20, spirit: 20, stamina: 20, int: 20, str: 20}),
     dwarf: new CharacterStats({str: 22, agi: 16, stamina: 23, int: 19, spirit: 19}),
-    nightElf: new CharacterStats({str: 17, agi: 25, stamina: 19, int: 20, spirit: 20}),
+    nightelf: new CharacterStats({str: 17, agi: 25, stamina: 19, int: 20, spirit: 20}),
     gnome: new CharacterStats({str: 15, agi: 23, stamina: 19, int: 23, spirit: 20}),
 
     orc: new CharacterStats({str: 23, agi: 17, stamina: 22, int: 17, spirit: 23}),

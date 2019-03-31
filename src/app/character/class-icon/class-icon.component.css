@@ -1,6 +1,7 @@
 :host {
-  display: block;
-  padding-bottom: 15px;
+  display: inline-block;
+  float: left;
+  padding: 5px;
 }
 img.selected {
   border-radius: 10px;
