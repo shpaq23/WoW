@@ -1,20 +1,28 @@
 :host {
-  width: 80%;
+  width: 880px;
+  height: 752px;
   display: inline-block;
   position: relative;
   margin: 3%;
-  background-color: rgba(77, 77, 77, 0.60);
+  background-color: rgba(122, 111, 109, 0.85);
+  box-shadow:0 0 10px 0 #ffce0f;
+  border-radius: 10px;
 }
 div.races {
   width: 200px;
-  height: 731px;
   float: left;
+  margin: 8px;
+  background-color: rgba(87, 77, 75, 0.65);
+  border-radius: 10px;
+  border: 3px solid #f6a530;
 }
 div.alliance {
-  background-color: darkblue;
+  background-color: #000485;
+  border-radius: 10px;
 }
 div.horde {
-  background-color: #6b0e0e;
+  background-color: #710002;
+  border-radius: 10px;
 }
 div.faction {
   width: 42%;
@@ -27,16 +35,33 @@ div.genders {
   float: left;
 }
 div.info {
+  display: inline-block;
   float: right;
-  margin: 8px;
-  height: 731px;
-}
-div.classes {
-  display: block;
-  background-color: #574d4b;
   position: absolute;
   bottom: 0;
+
+}
+div.classes {
+  margin: 8px;
+  display: block;
+  width: 270px;
+
+  background-color: rgba(87, 77, 75, 0.65);
+  border-radius: 10px;
+  border: 3px solid #f6a530;
+  position: absolute;
+  bottom: 0;
+  left: 222px;
 }
 div.model {
-  display: block;
+  width: 344px;
+  height: 577px;
+  position: absolute;
+  bottom: 0;
+  left: 514px;
+  margin: 8px;
+  background-color: rgba(87, 77, 75, 0.65);
+  border-radius: 10px;
+  border: 3px solid #f6a530;
+
 }

@@ -2,7 +2,11 @@
   display: inline-block;
   transform: translate(-50%,-50%);
   position: absolute;
-  top: 50%;
+  top: 55%;
+  background-color: rgba(122, 111, 109, 0.7);
+  box-shadow:0 0 10px 0 #ffce0f;
+  border-radius: 10px;
+  height: 380px;
 }
 div.inputs {
   display: inline;
