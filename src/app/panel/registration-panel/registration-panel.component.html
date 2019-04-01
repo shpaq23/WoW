@@ -1,67 +1,68 @@
-<form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="onSubmit()">
-  <div *ngIf="(success)" class="successes">
-    <div class="success">Successfully Registered </div>
-    <div class="success">Log In ! </div>
-  </div>
-  <div *ngIf="(submitted && registerForm.invalid) || error" class="errors">
-      <div class="error" *ngIf="registerForm.get('first_name').hasError('required')">First Name is required</div>
-      <div class="error" *ngIf="registerForm.get('last_name').hasError('required')">Last Name is required</div>
-      <div class="error" *ngIf="registerForm.get('email').hasError('required')">E-mail is required </div>
-      <div class="error" *ngIf="registerForm.get('email').hasError('email')">Invalid E-mail</div>
+<div *ngIf="(submitted && registerForm.invalid) || error" class="errors">
+  <div class="error" *ngIf="registerForm.get('first_name').hasError('required')">First Name is required</div>
+  <div class="error" *ngIf="registerForm.get('last_name').hasError('required')">Last Name is required</div>
+  <div class="error" *ngIf="registerForm.get('email').hasError('required')">E-mail is required </div>
+  <div class="error" *ngIf="registerForm.get('email').hasError('email')">Invalid E-mail</div>
 
-      <div class="error" *ngIf="registerForm.get('passwords').hasError('notSame')">Passwords do not match </div>
-      <div class="error" *ngIf="registerForm.get('passwords').get('password').hasError('required')">Password is required </div>
-      <div class="error" *ngIf="registerForm.get('passwords').get('password').hasError('minlength')">Password is too short </div>
-      <div class="error" *ngIf="registerForm.get('creation_password').hasError('required')">Creation Password is required </div>
+  <div class="error" *ngIf="registerForm.get('passwords').hasError('notSame')">Passwords do not match </div>
+  <div class="error" *ngIf="registerForm.get('passwords').get('password').hasError('required')">Password is required </div>
+  <div class="error" *ngIf="registerForm.get('passwords').get('password').hasError('minlength')">Password is too short </div>
+  <div class="error" *ngIf="registerForm.get('creation_password').hasError('required')">Creation Password is required </div>
 
-    <div class="error" *ngIf="error.email">{{error.email}}</div>
-    <div class="error" *ngIf="error.creation_password">{{error.creation_password}}</div>
+  <div class="error" *ngIf="error.email">{{error.email}}</div>
+  <div class="error" *ngIf="error.creation_password">{{error.creation_password}}</div>
 
-  </div>
-
-  <div class="inputs">
-    <div class="form-group">
-      <label class="text-label" for="first_name">First Name</label>
-      <input autocomplete="no" type="text" formControlName="first_name" class="form-control" id="first_name"/>
-    </div>
-    <div class="form-group">
-      <label class="text-label" for="last_name">Last Name</label>
-      <input autocomplete="no" type="text" formControlName="last_name" class="form-control" id="last_name"/>
-    </div>
-    <div class="form-group">
-      <label class="text-label" for="email">E-mail</label>
-      <input autocomplete="no" type="email" formControlName="email" class="form-control" id="email"/>
-    </div>
-  </div>
-  <div class="inputs">
-    <div formGroupName="passwords">
+</div>
+<div *ngIf="(success)" class="successes">
+  <div class="success">Successfully Registered </div>
+  <div class="success">Log In ! </div>
+</div>
+<div class="form">
+  <form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="onSubmit()">
+    <div class="inputs">
       <div class="form-group">
-        <label class="text-label" for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" id="password"/>
+        <label class="text-label" for="first_name">First Name</label>
+        <input autocomplete="no" type="text" formControlName="first_name" class="form-control" id="first_name"/>
       </div>
       <div class="form-group">
-        <label class="text-label" for="re_password">Re-Password</label>
-        <input type="password" formControlName="re_password" class="form-control" id="re_password"/>
+        <label class="text-label" for="last_name">Last Name</label>
+        <input autocomplete="no" type="text" formControlName="last_name" class="form-control" id="last_name"/>
+      </div>
+      <div class="form-group">
+        <label class="text-label" for="email">E-mail</label>
+        <input autocomplete="no" type="email" formControlName="email" class="form-control" id="email"/>
       </div>
     </div>
-    <div class="form-group">
-      <label class="text-label" for="creation_password">Creation Password</label>
-      <input type="text" formControlName="creation_password" class="form-control" id="creation_password"/>
+    <div class="inputs">
+      <div formGroupName="passwords">
+        <div class="form-group">
+          <label class="text-label" for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" id="password"/>
+        </div>
+        <div class="form-group">
+          <label class="text-label" for="re_password">Re-Password</label>
+          <input type="password" formControlName="re_password" class="form-control" id="re_password"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="text-label" for="creation_password">Creation Password</label>
+        <input type="text" formControlName="creation_password" class="form-control" id="creation_password"/>
+      </div>
     </div>
-  </div>
-  <div class="buttons">
-    <div class="form-group submit">
-      <button type="submit" [disabled]="loading" class="btn btn-primary">Register</button>
-    </div>
-    <div *ngIf="loading" class="refresh">
-      <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  alt="refresh"/>
-    </div>
-    <div class="login">
-      <button type="button" routerLink="/login" class="btn btn-primary">Back to Login</button>
-    </div>
+    <div class="buttons">
+      <div class="form-group submit">
+        <button type="submit" [disabled]="loading" class="btn btn-primary">Register</button>
+      </div>
+      <div *ngIf="loading" class="refresh">
+        <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="  alt="refresh"/>
+      </div>
+      <div class="login">
+        <button type="button" routerLink="/login" class="btn btn-primary">Back to Login</button>
+      </div>
 
-  </div>
-</form>
+    </div>
+  </form>
+</div>
 
 
 

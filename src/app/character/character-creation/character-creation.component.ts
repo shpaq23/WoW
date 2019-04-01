@@ -3,6 +3,10 @@ import {Race} from '../interfaces/race';
 import {Faction} from '../enums/faction.enum';
 import {Gender} from '../enums/gender.enum';
 import {CharacterClass} from '../enums/character-class.enum';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {CharacterService} from '../../api/services/character.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-character-creation',
@@ -59,10 +63,22 @@ export class CharacterCreationComponent implements OnInit {
     {name: 'dwarf', faction: Faction.alliance, gender: Gender.female, availableClasses: this.dwarfClasses},
     {name: 'dwarf', faction: Faction.alliance, gender: Gender.male, availableClasses: this.dwarfClasses},
   ];
+  creationForm: FormGroup;
+  submitted = false;
+  error = '';
+  loading = false;
 
-  constructor() { }
+  constructor(private router: Router,
+              private characterService: CharacterService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.creationForm = new FormGroup({
+      nickname: new FormControl('', {validators: [Validators.required]})
+    }, {updateOn: 'submit'});
+  }
+  get form(): {nickname: string} {
+    return {nickname: this.creationForm.get('nickname').value};
+  }
   selectRace(race: Race) {
     this.choosenRace = race;
     this.choosenClass = CharacterClass.warrior;
@@ -81,4 +97,21 @@ export class CharacterCreationComponent implements OnInit {
   selectClass(characterClass: CharacterClass) {
     this.choosenClass = characterClass;
   }
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.creationForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.characterService.create({class: this.choosenClass, nickname: this.form.nickname, race: this.choosenRace})
+      .pipe(first())
+      .subscribe({
+        complete: () => {this.router.navigate(['/character']); },
+        error: err => {
+          this.error = err;
+          this.loading = false; }
+        });
+  }
 }
+

@@ -1,1 +1,36 @@
+:host {
+  display: inline-block;
+  width: 344px;
+  height: 577px;
+  background-image: url('/assets/background.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-radius: 6px;
+}
+:host.human {
+  background-image: url('/assets/backgrounds/human.png');
+}
+:host.nightelf {
+  background-image: url('/assets/backgrounds/nightelf.png');
+}
+:host.gnome {
+  background-image: url('/assets/backgrounds/gnome.png');
+}
+:host.dwarf {
+  background-image: url('/assets/backgrounds/dwarf.png');
+}
 
+:host.orc {
+  background-image: url('/assets/backgrounds/orc.png');
+}
+:host.tauren {
+  background-image: url('/assets/backgrounds/tauren.png');
+}
+:host.undead {
+  background-image: url('/assets/backgrounds/undead.png');
+}
+:host.troll {
+  background-image: url('/assets/backgrounds/troll.png');
+}

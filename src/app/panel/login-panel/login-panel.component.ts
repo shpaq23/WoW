@@ -32,7 +32,7 @@ export class LoginPanelComponent implements OnInit {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['']);
     }
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/characters';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/character/create';
     }
 
 

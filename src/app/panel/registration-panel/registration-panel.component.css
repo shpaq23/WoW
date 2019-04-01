@@ -2,12 +2,17 @@
   display: inline-block;
   transform: translate(-50%,-50%);
   position: absolute;
-  top: 55%;
+  top: 50%;
+}
+div.form {
+  display: inline-block;
   background-color: rgba(122, 111, 109, 0.7);
   box-shadow:0 0 10px 0 #ffce0f;
   border-radius: 10px;
-  height: 380px;
+  padding-top: 20px;
+  height: 384px;
 }
+
 div.inputs {
   display: inline;
   float: left;
@@ -80,14 +85,18 @@ div.error {
   text-shadow: 1px -1px black;
 }
 div.errors {
-  border: 4px solid rgb(193, 54, 7);
   border-radius: 12px;
   background-color: rgba(77, 77, 77, 0.60);
+  border: 2px solid rgb(193, 54, 7);
+  box-shadow:0 0 10px 0 #ff2d00;
+  margin-bottom: 20px;
 }
 div.successes {
-  border: 4px solid rgb(32, 203, 1);
+  border: 2px solid rgb(32, 203, 1);
+  box-shadow:0 0 10px 0 #53ff00;
   border-radius: 12px;
   background-color: rgba(77, 77, 77, 0.60);
+  margin-bottom: 20px;
 }
 div.success {
   color: rgb(32, 175, 1);
